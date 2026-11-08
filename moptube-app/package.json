@@ -1,0 +1,43 @@
+{
+  "name": "moptube",
+  "version": "0.1.0",
+  "description": "MopTube desktop app",
+  "main": "main.js",
+  "author": "YOUR NAME",
+  "license": "UNLICENSED",
+  "repository": "github:YOUR_GITHUB_USERNAME/moptube",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "devDependencies": {
+    "electron": "^45.2.3",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.moptube.app",
+    "productName": "MopTube",
+    "files": [
+      "main.js",
+      "src/**/*",
+      "build/icon.png"
+    ],
+    "directories": {
+      "buildResources": "build"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg",
+      "category": "public.app-category.entertainment"
+    },
+    "linux": {
+      "target": "AppImage",
+      "category": "AudioVideo"
+    },
+    "publish": {
+      "provider": "github"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+name: Build installers
+
+# Push a tag like v0.1.0 and this builds the Windows, Mac and Linux installers
+# and attaches them to a GitHub release.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npx electron-builder
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
