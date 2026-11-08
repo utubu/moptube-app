@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "MopTube desktop app",
   "main": "main.js",
-  "author": "YOUR NAME",
+  "author": "Popular",
   "license": "UNLICENSED",
-  "repository": "github:YOUR_GITHUB_USERNAME/moptube",
+  "repository": "github:utubu/moptube-app",
   "scripts": {
     "start": "electron .",
     "dist": "electron-builder"
